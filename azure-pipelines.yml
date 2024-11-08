@@ -41,11 +41,15 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
-- task: AzureWebAppContainer@1
+
+
+- task: AzureRmWebAppDeployment@4
   inputs:
+    ConnectionType: 'AzureRM'
     azureSubscription: 'Myconn'
-    appName: 'nginxredirects'
-    containers: 'new-nginx:latest'
-    appSettings: '-MYSETTING $(NAME)'
-
-
+    appType: 'webAppContainer'
+    WebAppName: 'nginxredirects'
+    DockerNamespace: 'asvacr.azurecr.io'
+    DockerRepository: 'new-nginx'
+    DockerImageTag: 'latest'
+    AppSettings: '-MYVARIABLE $(NAME)'
