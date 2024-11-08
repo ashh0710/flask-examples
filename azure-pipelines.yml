@@ -52,4 +52,4 @@ steps:
     DockerNamespace: 'asvacr.azurecr.io'
     DockerRepository: 'new-nginx'
     DockerImageTag: 'latest'
-    AppSettings: '-MYVARIABLE $(NAME)'
+    AppSettings: '-MYVARIABLE $(NAME), -ANOTHERSECRET $(NEWSECRET)'
